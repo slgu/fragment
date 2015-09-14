@@ -47,6 +47,8 @@ public class DBCon {
                 "select * from %s where %s = ? and %s = ?",
                 DBCon.TABLE_NAME, DBCon.TYPE_FIELD_NAME, DBCon.INSTANCE_FIELD_NAME
         ));
+        pstmt.setString(1, type);
+        pstmt.setString(2, instance);
         return pstmt.executeQuery();
     }
 

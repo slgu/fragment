@@ -75,20 +75,25 @@ public class RpcServer {
             //get type instance
             DataInputStream input = new DataInputStream(new ByteArrayInputStream(body));
             int type_length = input.readInt();
+            System.out.println(type_length);
             byte[] type_byte_arr = new byte[type_length];
             input.read(type_byte_arr);
             String type_name = new String(type_byte_arr, "UTF-8");
 
             //get instance
             int instance_length = input.readInt();
+            System.out.println(instance_length);
             byte[] instance_byte_arr = new byte[instance_length];
-            String instance_name = new String(type_byte_arr, "UTF-8");
+            input.read(instance_byte_arr);
+            String instance_name = new String(instance_byte_arr, "UTF-8");
 
             //get encoded parameter
             int available_extra = input.available();
             byte[] encoded_parameters = new byte[available_extra];
             input.read(encoded_parameters);
 
+            System.out.println(type_name);
+            System.out.println(instance_name);
             //need to dispatch
             CalleeFunction invoker = dispatch(type_name, instance_name);
             String response;
@@ -139,4 +144,3 @@ public class RpcServer {
     private DBCon dbconn;
     private Channel channel;
 }
-

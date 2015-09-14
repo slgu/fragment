@@ -9,7 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class RpcClientStub {
-    public byte[] encode(Addressbook.Person person){
+    public static byte[] personencode(Addressbook.Person person){
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         try {
             person.writeTo(output);

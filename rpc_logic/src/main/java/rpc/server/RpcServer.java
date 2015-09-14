@@ -24,7 +24,7 @@ public class RpcServer {
 
     RpcServer(String channelname) throws Exception{
         this.channelname = channelname;
-        dbconn = new DBCon("localhost","3307","root","kobe31413");
+        dbconn = new DBCon("localhost","3307","root","******");
         if(!dbconn.connect()) {
             throw new Exception("init db conn error");
         }

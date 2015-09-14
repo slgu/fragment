@@ -19,7 +19,7 @@ import com.rabbitmq.client.AMQP.BasicProperties;
  */
 public class RpcClient {
     public RpcClient() throws Exception{
-        dbconn = new DBCon("localhost","3307","root","kobe31413");
+        dbconn = new DBCon("localhost","3307","root","******");
         if(!dbconn.connect()) {
             throw new Exception("init db conn error");
         }

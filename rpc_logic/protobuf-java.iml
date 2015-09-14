@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Osmorc" name="OSGi">
+      <configuration manifestGenerationMode="OsmorcControlled" manifestLocation="" jarfileLocation="protobuf-java-3.0.0-beta-1.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="" bundleSymbolicName="com.google.protobuf" bundleVersion="3.0.0.beta-1" ignoreFilePattern="" useProjectDefaultManifestFileLocation="true" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
+        <additionalProperties>
+          <property key="Bundle-Description" value="Protocol Buffers are a way of encoding structured data in an efficient yetextensible format." />
+          <property key="Bundle-Vendor" value="Google" />
+          <property key="Bundle-DocURL" value="https://developers.google.com/protocol-buffers/" />
+          <property key="Export-Package" value="com.google.protobuf;version=3.0.0-beta-1" />
+          <property key="Bundle-Name" value="Protocol Buffer Java API" />
+          <property key="Include-Resource" value="google/protobuf/any.proto=$MODULE_DIR$/../src/google/protobuf/any.proto,google/protobuf/api.proto=$MODULE_DIR$/../src/google/protobuf/api.proto,google/protobuf/descriptor.proto=$MODULE_DIR$/../src/google/protobuf/descriptor.proto,google/protobuf/duration.proto=$MODULE_DIR$/../src/google/protobuf/duration.proto,google/protobuf/empty.proto=$MODULE_DIR$/../src/google/protobuf/empty.proto,google/protobuf/field_mask.proto=$MODULE_DIR$/../src/google/protobuf/field_mask.proto,google/protobuf/source_context.proto=$MODULE_DIR$/../src/google/protobuf/source_context.proto,google/protobuf/struct.proto=$MODULE_DIR$/../src/google/protobuf/struct.proto,google/protobuf/timestamp.proto=$MODULE_DIR$/../src/google/protobuf/timestamp.proto,google/protobuf/type.proto=$MODULE_DIR$/../src/google/protobuf/type.proto,google/protobuf/wrappers.proto=$MODULE_DIR$/../src/google/protobuf/wrappers.proto" />
+        </additionalProperties>
+        <additionalJARContents />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.4" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.easymock:easymock:2.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.easymock:easymockclassextension:2.2.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: cglib:cglib-nodep:2.1_3" level="project" />
+  </component>
+</module>

@@ -1,7 +1,9 @@
 package job;
 
 import hdfs.HdfsDao;
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
@@ -31,19 +33,17 @@ public class MatrixMul {
         hdfs.copyFromLocal(origin1, input1);
         hdfs.copyFromLocal(origin2, input2);
 
-        //create output
-        hdfs.mkdir(output);
-
         //set job
-        Job job = new Job(MainRun.config());
+        Job job = Job.getInstance(new Configuration(), "matrixmul");
         job.setJarByClass(MatrixMul.class);
-        job.setOutputKeyClass(Text.class);
-        job.setOutputKeyClass(Text.class);
 
         job.setMapperClass(MatrixMap.class);
         job.setReducerClass(MatrixReduce.class);
-        job.setInputFormatClass(TextInputFormat.class);
-        job.setOutputKeyClass(TextOutputFormat.class);
+
+        job.setMapOutputKeyClass(Text.class);
+        job.setMapOutputKeyClass(Text.class);
+        job.setOutputKeyClass(Text.class);
+        job.setOutputKeyClass(IntWritable.class);
 
         //set input output
         FileInputFormat.setInputPaths(job, new Path(input1), new Path(input2));

@@ -40,6 +40,8 @@ public class HdfsDao {
         return list;
     }
     public void copyFromLocal(String origin, String target) throws IOException {
+        System.out.println(origin);
+        System.out.println(target);
         fs.copyFromLocalFile(new Path(origin), new Path(target));
     }
     public boolean mkdir(String folder) throws IOException {

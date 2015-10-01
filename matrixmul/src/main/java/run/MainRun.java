@@ -29,6 +29,7 @@ public class MainRun {
         return conf;
     }
     private static void matrixmul() {
+
         Map <String, String> path = new HashMap<String, String>();
         //local path
         path.put("m1", "/home/hadoop/csv1");

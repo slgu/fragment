@@ -1,5 +1,6 @@
 package job;
 
+import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 import run.MainRun;
@@ -12,14 +13,22 @@ import java.util.Map;
 /**
  * Created by hadoop on 9/30/15.
  */
-public class MatrixReduce extends Reducer{
+public class MatrixReduce extends Reducer <Text, Text, Text, IntWritable>{
     @Override
-    protected void reduce(Object key, Iterable values, Context context) throws IOException, InterruptedException {
+    protected void setup(Context context) throws IOException, InterruptedException {
+        super.setup(context);
+        System.out.println("setup MatrixReduce");
+    }
+    @Override
+    protected void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
+        System.out.println("begin reduce");
         Map <String, String> mapA = new HashMap<String, String>();
         Map <String, String> mapB = new HashMap<String, String>();
 
+        System.out.println(key);
         for (Object line: values) {
             String val = line.toString();
+            System.out.println(val);
             if (val.startsWith("A:")) {
                 String []kv = MainRun.DELIMETER.split(val.substring(2));
                 mapA.put(kv[0], kv[1]);
@@ -37,6 +46,6 @@ public class MatrixReduce extends Reducer{
             int b = Integer.parseInt(mapB.get(k));
             result += a * b;
         }
-        context.write(key, String.valueOf(result));
+        context.write(key, new IntWritable(result));
     }
 }
